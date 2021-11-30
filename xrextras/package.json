@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "clean": "rm -r dist/*"
+    "clean": "rm -r dist/*", 
+    "deploy": "cp dist/xrextras.js ../../mlf-ar-camera/lib/xrextras/xrextras.js",
+    "build-n-install": "npm run build && npm run deploy"
   },
   "keywords": [],
   "author": "",

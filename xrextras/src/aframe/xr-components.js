@@ -1066,6 +1066,8 @@ const xrComponents = () => {
       watermarkMaxHeight: {type: 'number'},
       watermarkLocation: {type: 'string'},
       fileNamePrefix: {type: 'string'},
+      shareTitle: {type: 'string'},
+      shareText: {type: 'string'},
       requestMic: {type: 'string'},
       includeSceneAudio: {type: 'boolean', default: true},
       excludeSceneAudio: {type: 'boolean', default: false},  // deprecated
