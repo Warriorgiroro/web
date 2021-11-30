@@ -1,6 +1,6 @@
 import * as htmlContent from './media-preview.html'
 import './media-preview.css'
-import {configure, getConfig} from './capture-config'
+import { configure, getConfig } from './capture-config'
 
 const IOS_DOWNLOAD_LOCATION = 'shareddocuments:///private/var/mobile/Library/Mobile Documents/com~apple~CloudDocs/Downloads/'
 
@@ -107,18 +107,24 @@ const share = () => {
     return
   }
 
+
   const fileToInclude = new File([currentBlob], currentFilename, {
     type: previewIsImage ? 'image/jpeg' : 'video/mp4',
     lastModified: Date.now(),
   })
 
   const shareObject = {
-    title: '',
-    text: '',
+    title: (getConfig().shareTitle) ? getConfig().shareTitle : '',
+    text: (getConfig().shareText) ? getConfig().shareText : '',
     files: [fileToInclude],
   }
+  window.dispatchEvent(new CustomEvent("before-share"))
+  navigator.share(shareObject).then(() => {
+    window.dispatchEvent(new CustomEvent("share-success", { detail: fileToInclude }));
+  }).catch((error) => {
+    window.dispatchEvent(new CustomEvent("share-fail", { detail: error }));
 
-  navigator.share(shareObject)
+  })
 }
 
 const getTimestamp = () => {
@@ -137,7 +143,7 @@ const showPreview = () => {
   }, 100)
 }
 
-const showImagePreview = ({blob}) => {
+const showImagePreview = ({ blob }) => {
   clearState()
   currentBlob = blob
   currentUrl = URL.createObjectURL(blob)
@@ -152,7 +158,7 @@ const showImagePreview = ({blob}) => {
   }
 }
 
-const showVideoPreview = ({videoBlob}) => {
+const showVideoPreview = ({ videoBlob }) => {
   clearState()
   currentBlob = videoBlob
   currentUrl = URL.createObjectURL(videoBlob)
@@ -220,7 +226,7 @@ const showVideoHandler = (event) => {
 
   previewContainer.classList.remove('finalize-waiting')
   videoPending = false
-  const {videoBlob} = event.detail
+  const { videoBlob } = event.detail
   // Keep a reference to the preview URL so we can revoke it on close
   visibleObjectUrl = currentUrl
   currentBlob = videoBlob
@@ -234,7 +240,7 @@ const showVideoHandler = (event) => {
       downloadFile()
       break
     default:
-      // Nothing
+    // Nothing
   }
   afterFinalizeAction = null
 }

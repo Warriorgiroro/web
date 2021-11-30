@@ -45,7 +45,7 @@ const updateConfig = () => {
 
 const internalKeys = new Set([
   'watermarkImageUrl', 'watermarkMaxWidth', 'watermarkMaxHeight', 'watermarkLocation',
-  'fileNamePrefix',
+  'fileNamePrefix', 'shareTitle', 'shareText'
 ])
 
 const configure = (config = {}) => {

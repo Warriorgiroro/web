@@ -106,6 +106,8 @@ const xrPrimitives = () => {
       'watermark-max-height': 'xrextras-capture-config.watermarkMaxHeight',
       'watermark-location': 'xrextras-capture-config.watermarkLocation',
       'file-name-prefix': 'xrextras-capture-config.fileNamePrefix',
+      'share-text': 'xrextras-capture-config.shareText',
+      'share-title': 'xrextras-capture-config.shareTitle',
       'request-mic': 'xrextras-capture-config.requestMic',
       'include-scene-audio': 'xrextras-capture-config.includeSceneAudio',
       'exclude-scene-audio': 'xrextras-capture-config.excludeSceneAudio', // deprecated
