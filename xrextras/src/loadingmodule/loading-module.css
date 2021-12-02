@@ -44,6 +44,21 @@
   width: 5em;
   transform: translate(-50%, -50%);
 }
+#logo-wrapper{
+  position: absolute;
+  top: 160px;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#adon-logo {
+  height: auto;
+  width: 60vw;
+
+  
+}
 
 /* camera and micrphone permission related styles */
 #cameraPermissionsErrorApple, #microphonePermissionsErrorApple {
