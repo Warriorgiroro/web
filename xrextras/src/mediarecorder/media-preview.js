@@ -287,7 +287,7 @@ const initMediaPreview = (options = {}) => {
   }
 
   // Check if Web Share API Level 2 is supported
-  if (navigator.canShare && navigator.canShare(shareTestObj)) {
+  if (navigator.canShare) {
     webShareAPILevel2 = true
     actionButtonText.textContent = options.actionButtonShareText || 'Share'
     actionButtonImg.src = '//cdn.8thwall.com/web/img/mediarecorder/share-v1.svg'
@@ -308,7 +308,7 @@ const initMediaPreview = (options = {}) => {
     actionButton.addEventListener('click', openIosDownload)
     actionButton.classList.add('show-after-download')
   } else {
-    actionButton.parentNode.removeChild(actionButton)
+    // actionButton.parentNode.removeChild(actionButton)
   }
 
   document.getElementById('finalizeText').textContent = options.finalizeText || 'Preparing...'
