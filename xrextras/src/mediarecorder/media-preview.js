@@ -287,7 +287,7 @@ const initMediaPreview = (options = {}) => {
   }
 
   // Check if Web Share API Level 2 is supported
-  if (navigator.canShare) {
+  if (navigator.canShare && navigator.canShare(shareTestObj)) {
     webShareAPILevel2 = true
     actionButtonText.textContent = options.actionButtonShareText || 'Share'
     actionButtonImg.src = '//cdn.8thwall.com/web/img/mediarecorder/share-v1.svg'
