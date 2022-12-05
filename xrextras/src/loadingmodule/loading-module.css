@@ -44,9 +44,9 @@
   width: 5em;
   transform: translate(-50%, -50%);
 }
-#logo-wrapper{
+#logo-wrapper {
   position: absolute;
-  top: 160px;
+  bottom: 100px;
   width: 100vw;
   display: flex;
   align-items: center;
